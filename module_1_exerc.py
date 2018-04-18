@@ -14,7 +14,11 @@ def mile_to_feet(distance_in_mile):
 
   return distance_in_feet
 
+<<<<<<< HEAD
 def time_to_seconds(formatted_time):
+=======
+def time_to_second(formatted_time):
+>>>>>>> b632ee2525ca48d3d3180d6dd2e6de215f009495
     """ This converts a given time into number of seconds.
     Inputs:
         A string representing the time in the format hh:mm:ss
