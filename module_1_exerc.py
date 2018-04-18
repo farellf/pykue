@@ -2,7 +2,7 @@
 This code contains my solutions for ISP Module 1 exercises
 """
 
-def mile_to_feet (distance_in_mile):
+def mile_to_feet(distance_in_mile):
   """
   This function converts a distance in feet into mile unit
   Input:
@@ -13,6 +13,19 @@ def mile_to_feet (distance_in_mile):
   distance_in_feet = distance_in_mile * 5280
 
   return distance_in_feet
+
+def time_to_seconds(formatted_time):
+    """ This converts a given time into number of seconds.
+    Inputs:
+        A string representing the time in the format hh:mm:ss
+    Output:
+        Number of seconds representing that time, i.e there are 86400 sec\
+        in 24 hours or 24:00:00
+    """
+
+    [hh, mm, ss] = formatted_time.split(":")
+    time_in_sec = int(hh) * 3600 + int(mm) * 60 + int(ss) * 60
+    return time_in_sec
 
 
 def test_function(function_name, arguments):
@@ -26,9 +39,9 @@ def test_function(function_name, arguments):
     """
     # So far arguments is a single value, I will deal with list later
     if len(arguments) == 0:
-        return function_name()
+         print(function_name())
     elif len(arguments) == 1:
-        return function_name(arguments[0])
+        print(function_name(arguments[0]))
     else:
         dummy_string = ''
         for arg in arguments:
@@ -42,4 +55,4 @@ def test_function(function_name, arguments):
         # the values within the brackets. This code will be fixed later.
         # One way is to give the same signature to all the function, or always
         # use a list for their input.
-        return function_string
+        print(function_string)
