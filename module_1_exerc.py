@@ -285,5 +285,6 @@ def test_function(function_name, *args):
     finally:
         print("Thanks for testing!")
 
-
-test_function(name_lookup, "farell")
+# Uncomment to test by providing the name of the function to tests
+# followed by its arguments
+#test_function(function_name, *args)
