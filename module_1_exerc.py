@@ -40,8 +40,6 @@ def time_to_seconds(formatted_time):
         Number of seconds representing that time, i.e there are 86400
         sec in 24 hours or 24:00:00
     """
-
-
     [hh, mm, ss] = formatted_time.split(":")
     time_in_sec = int(hh) * 3600 + int(mm) * 60 + int(ss) * 60
 
@@ -236,7 +234,7 @@ def is_leap_year(year):
 
     return ((year % 400 == 0) or (year % 4 == 0 and year % 100 != 0))
 
-def 𝚒𝚗𝚝𝚎𝚛𝚟𝚊𝚕_𝚒𝚗𝚝𝚎𝚛𝚜𝚎𝚌𝚝(a,b,c,d):
+def interval_intersect(a,b,c,d):
     """
     This code tests if two intervals intersect
     Input:
@@ -265,37 +263,27 @@ def name_lookup(firstname):
         return names_dict[firstname.upper()]
     else:
         print("There is no entry for that firstname")
-        return ""
+        return '""'
 
-def test_function(function_name, arguments):
+def test_function(function_name, *args):
     """
     This function helps test any function within this file
-    by submitting the function name and its argumentsself.
+    by given its name followed by its arguments.
     Inputs:
-        the exact funtion name.
+        function_name : the exact name of the function
+        *args : arguments of the function to call separated by a comma
     Output:
         Return the function output for the arguments provided.
     """
-    # So far arguments is a single value, I will deal with list later
     try:
-
-        if len(arguments) == 0:
-             print(function_name())
-        elif len(arguments) == 1:
-            print(function_name(arguments[0]))
-        else:
-            dummy_string = ''
-            for arg in arguments:
-                dummy_string += "{},".format(arg)
-            function_string = dummy_string[:-1]
-
-            # The intention here is to run function_name(function_string)
-            # However, function_string is still a string treated as one single\
-            # variable by the function being called.
-            # Therefore, I just return the string that shoud represent \
-            # the values within the brackets. This code will be fixed later.
-            # One way is to give the same signature to all the function, or always
-            # use a list for their input.
-            print(function_string)
+        print("Executing the function {}".format(function_name))
+        print("...")
+        return_value =function_name(*args)
+        print("The function returned : {}".format(return_value))
     except:
-        print("Executing '{}' generated an error".format(function_name))
+        print("The called function returned an error")
+    finally:
+        print("Thanks for testing!")
+
+
+test_function(name_lookup, "farell")
