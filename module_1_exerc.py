@@ -4,6 +4,21 @@ This code contains my solutions for ISP Module 1 exercises
 import math
 import random
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        pass
+
+    try:
+        import unicodedata
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+    return False
+
 def mile_to_feet(distance_in_mile):
   """
   This function converts a distance in feet into mile unit
@@ -172,6 +187,85 @@ def powerball ():
     The Powerball number is : {:<2}".format(s(),s(),s(),s(),s(),\
     random.randrange(1,36)))
 
+def is_even(number):
+    """
+    This code tests if a given number is even, then returns true or
+    false, otherwise.
+    Input:
+        number = the number (should be integer type) to test.
+    Output:
+        A boolean True or False.
+    """
+    return (number % 2 == 0)
+
+def is_cool(name):
+    """
+    This funny code tests if a given name is cool, then returns true or
+    false, otherwise. The coolest names are hard coded in the list
+    cool_list below.
+    Input:
+        name = the name (should be a string) to test.
+    Output:
+        A boolean True or False.
+    """
+    cool_list = ["FARELL", "JOE", "STEPHEN", "JOHN"]
+
+    return (name.upper() in cool_list)
+
+def is_lunchtime(hour, is_am):
+    """
+    This code tests if it is lunctime given the time.
+    Input:
+        hour = current hour in two digits integers hh
+        is_am = Boolean True if is am, False if pm
+    Output:
+        A boolean True or False.
+    """
+
+    return ((hour == 12 and not is_am) or (hour == 11 and is_am))
+
+def is_leap_year(year):
+    """
+    This code tests if a given year is leap and return true or False
+    accordingly.
+    Input:
+        year = year to test as four digits integer
+    Output:
+        A boolean True if the year is leap or False, otherwise.
+    """
+
+    return ((year % 400 == 0) or (year % 4 == 0 and year % 100 != 0))
+
+def 𝚒𝚗𝚝𝚎𝚛𝚟𝚊𝚕_𝚒𝚗𝚝𝚎𝚛𝚜𝚎𝚌𝚝(a,b,c,d):
+    """
+    This code tests if two intervals intersect
+    Input:
+        (a,b) represents first interval [a, b]
+        (c,d) represents second interval [c, d]
+    Output:
+        A boolean True if the the intersection is not empty
+         or False, otherwise.
+    """
+    return (a <= c <= b <= d) or (c <= a <= d <= b)
+
+
+def name_lookup(firstname):
+    """
+    This funny code lookups the nam of a person given its firstname
+    Input:
+        firstname = a string
+    Output:
+        Returns the name corresponding to that firstname if it exists
+        in the table or print an error message.
+    """
+    names_dict = {"JOE":"Warren", "SCOTT": "Rixner", "JOHN" : "GREINER",\
+    "STEPHEN" : "Wong"}
+
+    if firstname.upper() in names_dict:
+        return names_dict[firstname.upper()]
+    else:
+        print("There is no entry for that firstname")
+        return ""
 
 def test_function(function_name, arguments):
     """
