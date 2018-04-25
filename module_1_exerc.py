@@ -181,8 +181,8 @@ def powerball ():
 
     print(todays_number)
     s = todays_number.pop
-    print("Todays numbers are {}, {}, {}, {}, {}. \
-    The Powerball number is : {:<2}".format(s(),s(),s(),s(),s(),\
+    print("Todays numbers are {}, {}, {}, {}, {}. \n \
+    The Powerball number is : {:*^15}".format(s(),s(),s(),s(),s(),\
     random.randrange(1,36)))
 
 def is_even(number):
