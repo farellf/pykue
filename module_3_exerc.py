@@ -4,6 +4,9 @@ This code contains my solutions for ISP Module 3 exercises
 import random
 import math
 import re
+import csv
+
+PATH = "/Users/ekue/github/pykue/"
 
 def is_empty(my_dict):
     """
@@ -56,8 +59,8 @@ def encrypt(phrase, cipher_dict):
     that each letter's replacement is unique.
     Input:
         phrase : the string to encrypt
-        cipher_dict :  a dictionnary where the values are the encrypted
-        versions of the keys.
+        cipher_dict :  a dictionnary where the values are
+        the encrypted versions of the keys.
     Output:
         the cipher
     """
@@ -113,8 +116,9 @@ def make_cipher_dict(alphabet):
 
 def 𝚍𝚒𝚌𝚝_𝚌𝚘𝚙𝚒𝚎𝚜(𝚖𝚢_𝚍𝚒𝚌𝚝, 𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜):
     """
-    This function takes a  dictionary 𝚖𝚢_𝚍𝚒𝚌𝚝 and an integer 𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜
-    and returns  a list consisting of 𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜 copies of 𝚖𝚢_𝚍𝚒𝚌𝚝.
+    This function takes a  dictionary 𝚖𝚢_𝚍𝚒𝚌𝚝 and an integer
+    𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜 and returns  a list consisting of 𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜 copies
+    of 𝚖𝚢_𝚍𝚒𝚌𝚝.
     """
 
     return [dict(my_dict) for num in range(num_copies)]
@@ -140,3 +144,63 @@ def make_grade_table(name_list, grades_list):
 
     return dict([(name, grade) for (name, grade) in \
     zip(name_list, grades_list)])
+
+def read_csv_file(filename):
+    """
+    Given a file path specified as the string, 𝚏𝚒𝚕𝚎_𝚗𝚊𝚖𝚎 ,
+    load the associated CSV file and return
+    a nested list whose entries are the fields in the CSV file.
+    Each entry in the returned table is of type 𝚜𝚝𝚛
+    """
+    nested_list = []
+    with open(filename, "rt") as csvfile:
+        csvreader = csv.reader(csvfile, delimiter=',')
+
+        for dummy_row in csvreader:
+            nested_list.append(dummy_row)
+    return nested_list
+
+
+
+def write_csv_file(csv_table, filename):
+    """
+    Input: Nested list csv_table and a string file_name
+    Action: Write fields in csv_table into a comma-separated
+    CSV file with the name file_name
+    """
+    with open(filename, 'wt', newline ='') as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter =',', quoting \
+        = csv.QUOTE_MINIMAL)
+        for dummy_row in csv_table:
+            csvwriter.writerow(dummy_row)
+
+
+def test_part1_code(PATH):
+    """
+    Run examples that test the functions for part 1
+    """
+
+    # Simple test for reader
+    test_table = read_csv_file(PATH + "test_case.csv")
+    # create a small CSV for this test
+    #print_table(test_table)
+    print()
+
+    # Test the writer
+    cancer_risk_table = read_csv_file(PATH + "test_case.csv")
+
+    write_csv_file(cancer_risk_table, PATH + \
+    "cancer_risk05_v4_county_copy2.csv")
+
+    cancer_risk_copy = read_csv_file(PATH +  \
+    "cancer_risk05_v4_county_copy2.csv")
+
+    # Test whether two tables are the same
+    for row in range(len(cancer_risk_table)):
+        for col in range(len(cancer_risk_table[0])):
+            if cancer_risk_table[row][col] != \
+            cancer_risk_copy[row][col]:
+                print("Difference at", row, col,\
+             cancer_risk_table[row][col], cancer_risk_copy[row][col])
+
+test_part1_code(PATH)
