@@ -1,5 +1,5 @@
 """
-This code contains my solutions for ISP Module 1 exercises
+This code contains my solutions for ISP Module 2 exercises
 """
 import random
 import math
