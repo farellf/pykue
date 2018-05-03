@@ -110,3 +110,33 @@ def make_cipher_dict(alphabet):
         cipher_dict[char] = alphabet_list.pop()
 
     return cipher_dict
+
+def 𝚍𝚒𝚌𝚝_𝚌𝚘𝚙𝚒𝚎𝚜(𝚖𝚢_𝚍𝚒𝚌𝚝, 𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜):
+    """
+    This function takes a  dictionary 𝚖𝚢_𝚍𝚒𝚌𝚝 and an integer 𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜
+    and returns  a list consisting of 𝚗𝚞𝚖_𝚌𝚘𝚙𝚒𝚎𝚜 copies of 𝚖𝚢_𝚍𝚒𝚌𝚝.
+    """
+
+    return [dict(my_dict) for num in range(num_copies)]
+
+
+def make_dict_lists(𝚕𝚎𝚗𝚐𝚝𝚑):
+    """
+    A function  that takes an integer 𝚕𝚎𝚗𝚐𝚝𝚑 returns a dictionary
+    whose keys are in 𝚛𝚊𝚗𝚐𝚎(𝚕𝚎𝚗𝚐𝚝𝚑) and whose corresponding values
+    are lists of zeros whose length match the key.
+    """
+    return dict([(key,[0] * key) for key in range(length)])
+
+def make_grade_table(name_list, grades_list):
+
+    """
+    Define a function 𝚖𝚊𝚔𝚎_𝚐𝚛𝚊𝚍𝚎_𝚝𝚊𝚋𝚕𝚎(𝚗𝚊𝚖𝚎_𝚕𝚒𝚜𝚝, 𝚐𝚛𝚊𝚍𝚎𝚜_𝚕𝚒𝚜𝚝) that
+    takes a list of names 𝚗𝚊𝚖𝚎_𝚕𝚒𝚜𝚝 and a list of grade lists
+    𝚐𝚛𝚊𝚍𝚎𝚜_𝚕𝚒𝚜𝚝 and returns a dictionary whose keys corresponds to
+    names 𝚗𝚊𝚖𝚎_𝚕𝚒𝚜𝚝 and whose corresponding values are the items
+    𝚐𝚛𝚊𝚍𝚎𝚜_𝚕𝚒𝚜𝚝.
+    """
+
+    return dict([(name, grade) for (name, grade) in \
+    zip(name_list, grades_list)])
