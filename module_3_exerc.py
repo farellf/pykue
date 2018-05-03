@@ -160,8 +160,6 @@ def read_csv_file(filename):
             nested_list.append(dummy_row)
     return nested_list
 
-
-
 def write_csv_file(csv_table, filename):
     """
     Input: Nested list csv_table and a string file_name
@@ -174,33 +172,37 @@ def write_csv_file(csv_table, filename):
         for dummy_row in csv_table:
             csvwriter.writerow(dummy_row)
 
-
-def test_part1_code(PATH):
+def print_table(table):
     """
-    Run examples that test the functions for part 1
+    Echo a nested list table to the console
     """
+    for row in table:
+        print(row)
 
-    # Simple test for reader
-    test_table = read_csv_file(PATH + "test_case.csv")
-    # create a small CSV for this test
-    #print_table(test_table)
-    print()
+def select_columns(my_table, col_indices):
+    """
+    Input: Nested list my_table and a list of integers col_indices
+    Output: Nested list corresponding to sub-table formed by
+    columns in col_indices
+    """
+    output_list = []
 
-    # Test the writer
-    cancer_risk_table = read_csv_file(PATH + "test_case.csv")
 
-    write_csv_file(cancer_risk_table, PATH + \
-    "cancer_risk05_v4_county_copy2.csv")
+    for dummy_row in my_table:
+        output_col = []
+        for dummy_idx in col_indices:
+            #print(dummy_row)
+            output_col.append(dummy_row[dummy_idx])
+        output_list.append(output_col)
 
-    cancer_risk_copy = read_csv_file(PATH +  \
-    "cancer_risk05_v4_county_copy2.csv")
+    return output_list
 
-    # Test whether two tables are the same
-    for row in range(len(cancer_risk_table)):
-        for col in range(len(cancer_risk_table[0])):
-            if cancer_risk_table[row][col] != \
-            cancer_risk_copy[row][col]:
-                print("Difference at", row, col,\
-             cancer_risk_table[row][col], cancer_risk_copy[row][col])
-
-test_part1_code(PATH)
+def sort_by_column(my_table, col_idx):
+    """
+    Input: Nested list my_table and an integer col_idx
+    Action: Mutate the order of the rows in my_table such that the
+    entries in the column col_idx appear in DESCENDING order when
+    interpreted as numbers
+    """
+    my_table.sort(
+    key = lambda dummy_row : float(dummy_row[col_idx]), reverse = True)
