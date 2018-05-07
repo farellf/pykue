@@ -70,7 +70,6 @@ def encrypt(phrase, cipher_dict):
         cipher += cipher_dict[char]
     return cipher
 
-
 def make_decipher_dict(cipher_dict):
     """
     This function takes a cipher dictionary 𝚌𝚒𝚙𝚑𝚎𝚛_𝚍𝚒𝚌𝚝 and returns
@@ -187,11 +186,9 @@ def select_columns(my_table, col_indices):
     """
     output_list = []
 
-
     for dummy_row in my_table:
         output_col = []
         for dummy_idx in col_indices:
-            #print(dummy_row)
             output_col.append(dummy_row[dummy_idx])
         output_list.append(output_col)
 
