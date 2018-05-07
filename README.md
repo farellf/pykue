@@ -1,2 +1,2 @@
 # Pykue
-# This is to write simple python codes for beginners to learn python3
+# Python for fun by Ekue, @__f_f__
