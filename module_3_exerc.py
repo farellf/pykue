@@ -6,7 +6,7 @@ import math
 import re
 import csv
 
-PATH = "/Users/ekue/github/pykue/"
+PATH = "" # Set path for your files.
 
 def is_empty(my_dict):
     """
@@ -170,13 +170,6 @@ def write_csv_file(csv_table, filename):
         = csv.QUOTE_MINIMAL)
         for dummy_row in csv_table:
             csvwriter.writerow(dummy_row)
-
-def print_table(table):
-    """
-    Echo a nested list table to the console
-    """
-    for row in table:
-        print(row)
 
 def select_columns(my_table, col_indices):
     """
