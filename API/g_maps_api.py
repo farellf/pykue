@@ -8,6 +8,8 @@ The code is divided in two parts :
     uses the coordinates retrieved in the first step
     and try to find a certain type of places within a specified range
     associated with a keyword
+
+@__f_f__, April 18th.
 """
 
 import urllib
