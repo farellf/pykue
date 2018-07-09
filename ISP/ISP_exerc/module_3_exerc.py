@@ -1,5 +1,8 @@
 """
-This code contains my solutions for ISP Module 3 exercises
+This code contains my solutions for Interactive Scription with Python
+Course, Rice University on Coursera : Module 3 exercises
+
+@__f_f__, April 2018.
 """
 import random
 import math
@@ -195,4 +198,4 @@ def sort_by_column(my_table, col_idx):
     interpreted as numbers
     """
     my_table.sort(
-    key = lambda dummy_row : float(dummy_row[col_idx]), reverse = True)
+    key = lambda dummy_row : float(dummy_row[col_idx]),reverse = True)

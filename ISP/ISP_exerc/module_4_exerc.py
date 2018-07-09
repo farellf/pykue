@@ -1,5 +1,8 @@
 """
-This code contains my solutions for ISP Module 4 exercises
+This code contains my solutions for Interactive Scription with Python
+Course, Rice University on Coursera : Module 4 exercises
+
+@__f_f__, April 2018.
 """
 import random
 import math
@@ -314,8 +317,8 @@ def draw_cancer_risk_map(joined_csv_file_name,map_name,num_counties):
 
     plt.show()
 
-# joined_csv_file_name = "/Users/ekue/github/pykue/ISP_exerc/cancer_risk_joined.csv"
-# map_name = "/Users/ekue/github/pykue/ISP_exerc/USA_Counties_555x352.png"
+# joined_csv_file_name = "set file path here"
+# map_name = "set file path here"
 # num_counties = 100
 
 # if __name__ == "__main__":

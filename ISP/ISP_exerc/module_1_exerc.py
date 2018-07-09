@@ -1,5 +1,8 @@
 """
-This code contains my solutions for ISP Module 1 exercises
+This code contains my solutions for Interactive Scription with Python
+Course, Rice University on Coursera : Module 1 exercises
+
+@__f_f__, April 2018.
 """
 import math
 import random
