@@ -83,8 +83,7 @@ else:
            'pagetoken' : js['next_page_token'],\
            'key' : API_key})
            # Remember to insert your own key
-           print ('Retrieving more at :')
-           print (next_page_url)
+           print ('Retrieving more at : {}'.format(next_page_url))
            more_uh = urllib.urlopen(next_page_url)
            more_data = more_uh.read()
            print ('Retrieved',len(more_data),'more characters')
